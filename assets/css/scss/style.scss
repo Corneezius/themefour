@@ -1,0 +1,710 @@
+/**
+*----------------------------------------------------------------------------------------------
+* 1. Base Styles
+*----------------------------------------------------------------------------------------------
+*/
+
+/* Variables */
+$primary-color: #000;
+$secondary-color: #E74C3C; // Flat red
+// $secondary-color: #57BF61; // Light green
+// $secondary-color: #03ADF2; // Light blue
+$ternary-color: #fff;
+$font-color: #555;
+// $link-color: #E74C3C;
+$link-color: rgba(0, 0, 0, 0.75);
+$link-hover-color: #D62C1A; // Flat red
+// $link-hover-color: #389240; // Light green
+// $link-hover-color: #0277A6; // Light blue
+
+$overlay-color: rgba(0, 0, 0, 0.8);
+
+$border-color: rgba(0, 0, 0, 0.2);
+$border: 1px solid $border-color;
+$line-height: 26px;
+
+$font-stack: 'Raleway', Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$scale-1: 5.063em;
+$scale-2: 3.375em;
+$scale-3: 2.25em;
+$scale-4: 1.5em;
+$scale-5: 1em;
+$scale-6: 0.667em;
+$scale-7: 0.444em;
+
+
+$background: #f2f2f2;
+
+$transition-time: .3s;
+$slower-transition-time: .5s;
+$transition-method: ease;
+
+/*Mixins*/
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin translate3D($x, $y, $z) {
+	-webkit-transform: translate3d($x, $y, $z);
+	-ms-transform: translate3d($x, $y, $z);
+	transform: translate3d($x, $y, $z);
+}
+
+
+body {
+	-webkit-font-smoothing: antialiased;
+  	word-wrap: break-word;
+  	font-family: $font-stack;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:active, &:focus {
+		outline: none;
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+/* Mozilla based browsers */
+::-moz-selection {
+       background-color: $secondary-color;
+       color: #fff;
+}
+
+/* Works in Safari */
+::selection {
+       background-color: $link-color;
+       color: #fff;
+} 
+
+video { 
+	width: 100% !important; 
+	height: auto !important; 
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 2. Layout Styles
+*----------------------------------------------------------------------------------------------
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-stack;
+	line-height: 1.4em;
+}
+
+h1 {
+	font-size: $scale-2;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: $scale-3;
+}
+
+h3 {
+	font-size: $scale-4;
+	margin: 5px 0 10px 0;
+}
+
+h4 {
+	font-size: $scale-5;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: $scale-6;
+}
+
+h6 {
+	font-size: $scale-7;
+}
+/* Content container */
+.start-container {
+	position: relative;
+	overflow: hidden;
+}
+
+/* Content wrapper */
+.start-wrapper {
+	height: 100%;
+	z-index: 99;
+}
+
+/* Header */
+.start-overlay {
+	min-height: 100vh;
+	width: 100%;
+	position: absolute;
+	background: none repeat scroll 0% 0% #000;
+	opacity: 0.7;
+}
+
+.start-header {
+	min-height: 100vh;
+	overflow: hidden;
+	background-size: cover; 
+	background-position: center;
+	overflow: hidden;
+}
+
+.start-header-top-outer {
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+}
+
+.start-header-top { 
+	height: 80px;
+	.col-xs-6 {
+		height: 80px;
+		div, img{
+			@include vertical-align;
+		}	
+	}
+}
+
+.start-search-icon {
+	float: right;
+	font-size: $scale-4;
+	color: #fff;
+	margin-left: 20px;;
+}
+
+.start-nav-button {
+	font-size: $scale-2;
+	float: right;
+
+	a {
+		&:active, &:focus {
+			color: white;
+		}
+	}
+}
+
+.start-header-bottom {
+	min-height: 100vh;
+	position: relative;
+	text-align: center;
+}
+
+.start-blog-header-info {
+	position: absolute;
+	margin: auto;
+	top: 25%; left: 0; right: 0;
+}
+
+.start-blog-title {
+	letter-spacing: .05em;
+}
+
+.start-blog-title, .start-blog-description, .start-scroll-icon {
+	text-align: center;
+}
+
+.start-blog-description {
+	max-width: 690px;
+	margin: 25px auto 0 auto;
+}
+
+.start-header-separator {
+	width: 20%;
+}
+
+.start-scroll-icon {
+	position: absolute;
+	margin: auto;
+	left: 0; bottom: 40px; right: 0;
+
+	.start-scroller {
+		font-size: $scale-2;
+		color: #fff;
+	}
+}
+/* Loop content */
+.start-loop-content {
+	padding-top: 60px;
+}
+
+.start-content {
+	padding-top: 60px;
+}
+/* Pages that aren't home or author */
+.start-non-home-content {
+	padding-top: 140px;
+}
+
+.start-loop-row {
+	margin-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+	.start-loop-row {
+		margin-bottom: 0px;
+	}
+}
+
+/* Post page content */
+
+.start-post-content {
+	
+	.start-article-no-image{
+		padding-top: 60px;
+	}
+
+	padding-bottom: 40px;
+
+	.start-post-thumb-header {
+		height: 520px; width: 100%;
+		background-position: center center;
+		background-size: cover;
+	}
+
+	.container {
+		padding: 40px 0 40px 0;
+
+		.start-post-header {
+			margin-top: 20px;
+
+			.start-post-tag-main {
+				text-transform: uppercase;
+				font-weight: 700;
+				a {
+					font-size: $scale-5;
+				}
+			}
+		}
+
+		.start-main-post-content {
+			img {
+				width: 100%;
+			}
+		}
+
+		.start-post-share-tags {
+			text-align: center;
+			
+			.start-single-post-share {
+				border-right: $border;
+			}
+
+			div {
+				padding: 0;
+			}
+		}
+
+		.row {
+			max-width: 950px;
+			margin: 0 auto;
+		}
+
+		article {
+			max-width: 690px;
+			margin: 0 auto;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+}
+
+/* Footer */
+.start-footer {
+	// margin-top: 20px;
+	padding: 30px 0;
+
+	.copyright {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+
+	hr {
+		width: 40%;
+		margin: 15px auto;
+	}
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 3. Module Styles
+*----------------------------------------------------------------------------------------------
+*/
+/* Header */
+.start-colored-overlay {
+	background-color: $secondary-color;
+}
+
+/* Menu */
+.start-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 300px;
+	border-left: $border;
+	height: 100%;
+	background: #fff;
+	z-index: 100;
+	@include transition(all, $transition-time, $transition-method);
+}
+
+.start-menu::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: $overlay-color;
+	content: '';
+	opacity: 1;
+}
+
+.start-effect.start-menu {
+	@include translate3D(100%, 0, 0);
+}
+
+.start-effect.start-menu-open .start-effect.start-menu {
+	@include translate3D(0, 0, 0);
+}
+
+.start-effect.start-menu::after {
+	display: none;
+}
+
+.start-menu-content {
+	width: 100%;
+	position: relative;
+}
+
+.icon-close-wrapper {
+	width: 100%;
+	min-height: 100px;
+}
+
+.start-close-menu-icon {
+	font-size: $scale-2;
+	float: right;
+	clear: left;
+	i {
+		color: $link-color;
+		@include transition(all, $transition-time, $transition-method);
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+}
+
+.start-menu-main {
+	text-align: center;
+	display: block;
+
+	hr {
+		width: 40%;	
+		margin: 10px auto;
+	}
+}
+
+.mc_embed_signup {
+
+}
+
+/* Search bar */
+.start-search-bar {
+	position: fixed;
+	top: -100%;
+	width: 100vw;
+	height: 100vh;
+	padding-top: 10px;
+	background-color: $overlay-color;
+	@include transition(all, $transition-time, $transition-method);
+}
+
+.start-search-bar-open {
+	top: 0;
+}
+
+.start-big-search-input {
+	background: transparent;
+	font-size: $scale-2;
+	border: none;
+	color: #fff;
+	height: 65px;
+	line-height: 1;
+}
+
+.start-close-search {
+	font-size: $scale-2;
+}
+
+.start-search-results {
+	a {
+		color: #fff;
+	}
+}
+
+/* Article */
+.start-post-preview {
+	section {
+		padding: 5px 15px 15px 15px;
+		// text-align: justify;
+	}
+
+
+}
+
+@media (max-width: 992px) {
+	.start-post-preview {
+		margin-bottom: 45px;
+	}
+}
+
+.start-image-thumbnail {
+	position: relative;
+	width: 100%;
+	// min-height: 270px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+	}
+}
+
+
+.start-post-info {
+	width: 100%;
+	text-transform: uppercase;
+	font-size: $scale-6;
+	padding-left: 15px;
+	span {
+		padding: 0;
+	}
+	
+	.start-post-tag {
+		a {
+			float: left;
+		}
+	}
+
+	.start-post-date {
+		float: right;
+	}
+}
+
+.start-post-footer {
+	padding: 15px 15px 15px 15px;
+	// text-align: justify;
+
+	ul {
+		margin: 0;
+		
+		a {
+			&:focus, &:active {
+				color: $link-color;
+			}
+		}
+	}
+}
+
+.start-excerpt-author {
+	font-size: $scale-6;
+
+	a {
+		color: $secondary-color;
+
+		&:hover {
+			color: $link-hover-color;
+		}
+
+		&:focus, &:active {
+			color: $link-color;
+		}
+	}
+}
+
+/* Pagination */
+.start-pagination {
+	text-align: center;
+	
+	a {
+		display: inline-block;
+		border: $border;
+		border-radius: 30px;
+		padding: 10px 20px;
+		@include transition(all, $transition-time, $transition-method);
+
+		&:hover {
+			border: 1px solid $link-hover-color;
+
+		}
+	}
+
+	i {
+		// font-size: $scale-3;
+		vertical-align: middle;
+	}
+}
+
+/* Footer */
+.start-footer {
+	text-align: center;
+}
+
+.start-footer-icons {
+	a {
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		border: $border;
+		border-radius: 35px;
+		text-align: center;
+		padding-top: 6px;
+		color: $link-color;
+		@include transition(all, $transition-time, $transition-method);
+
+		&:hover {
+			color: $link-hover-color;
+			border: 1px solid $link-hover-color;
+		}
+	}
+
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 4. Theme Styles
+*----------------------------------------------------------------------------------------------
+*/
+/* General */
+body {
+	// background-color: $background;
+	font-family: $font-stack;
+	font-size: $font-size;
+	color: $font-color;
+	line-height: $line-height;
+}
+
+a {
+	color: $link-color;
+
+	&:hover {
+		color: $link-hover-color;
+		@include transition(color, $transition-time, $transition-method);
+	}
+}
+
+blockquote {
+	border-left: 5px solid $secondary-color;
+}
+
+/*
+Monokai style - ported by Luigi Maselli - http://grigio.org
+*/
+pre {
+	padding: 2px;
+	border: none;
+}
+
+/* Header */
+.start-header-top-outer-bg {
+	background-color: $overlay-color;
+	@include transition(background-color, $slower-transition-time, $transition-method);
+}
+
+.start-header-top-outer-no-bg {
+	background-color: transparent;
+	@include transition(background-color, $slower-transition-time, $transition-method);
+}
+
+.start-header-link {
+	color: #fff;
+	@include transition(color, $transition-time, $transition-method);
+	&:hover {
+		color: $link-hover-color;
+	}
+}
+
+.start-scroll-icon {
+	.start-scroller {
+		&:hover {
+			color: $link-hover-color;
+			@include transition(color, $transition-time, $transition-method);
+		}
+	}
+}
+
+.start-blog-title, .start-blog-description, .start-nav-button > i {
+	color: #fff;
+}
+
+.start-close-menu-icon {
+	color: #fff;
+	&:hover {
+		color: $link-hover-color;
+	}
+}
+
+/* Article */
+.start-post-preview {
+	background-color: #fff;
+	border: $border;
+}
+
+.start-post-tag {
+	a {
+		color: $secondary-color;
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+}
+
+.start-post-footer {
+	border-top: $border;
+}
+
+/* Post page content */
+.start-post-content {
+	background-color: #fff;
+	.start-post-hr {
+		border-color: $border-color;
+	}
+
+	.start-main-post-content {
+		a { 
+			color: $link-color;
+			border-bottom: $border;
+			@include transition(all, $transition-time, $transition-method);
+			&:hover {
+				color: $link-hover-color;
+				border-bottom: 1px solid $link-hover-color;
+			}
+		}		
+	}
+}
+
+/* Footer */
+.start-footer {
+	background-color: #fff;
+	border-top: $border;
+
+}

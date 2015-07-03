@@ -1,0 +1,10 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+{{>	header}}
+
+<main class="{{^is "paged, post"}}start-content{{else}}start-non-home-content{{/is}}">
+	{{> loop}}
+</main> <!-- /.start-content -->
+
+
+{{>	footer}}

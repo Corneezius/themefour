@@ -1,0 +1,26 @@
+{{!-- Sidebar menu --}}
+<nav class="start-menu start-effect">
+	<div class="start-menu-content">
+		<div class="icon-close-wrapper">
+			<a href="#" class="start-close-menu-icon">
+				<i class="icon_close"></i>
+			</a>			
+		</div>
+		<div class="start-menu-main">
+			{{log navigation}}
+			{{#foreach navigation}}
+			<div class="start-nav-elem" >
+				<a href="{{url}}">{{label}}</a>
+				<hr>
+			</div>		
+			{{/foreach}}
+			    {{!-- <div class="start-nav-home" role="presentation"><a href="/">Home</a></div>
+			    <hr>
+			    <div class="start-nav-about" role="presentation"><a href="/about">About</a></div>
+			    <hr>
+			    <div class="start-nav-contact" role="presentation"><a href="/contact">Contact</a></div>
+			    <hr> --}}			
+		</div>
+
+	</div> <!-- /.start-menu-content -->
+</nav> <!-- /.start-menu -->

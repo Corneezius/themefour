@@ -1,0 +1,110 @@
+{{^is "paged, post, page"}} <div class="start-overlay {{^if @blog.cover}} start-colored-overlay {{/if}}"></div> {{/is}}
+<div id="start-header" class="{{^is "paged, post, page"}}start-header{{/is}}" role="banner"
+{{#is "home"}} 
+style="background-image: {{#if @blog.cover}}url({{@blog.cover}}){{else}}no-cover{{/if}}"
+{{/is}}
+
+{{#is "author"}}
+{{#if author.cover}} 
+style="background-image: url({{author.cover}})"
+{{else}}
+style="background-image: {{#if @blog.cover}}url({{@blog.cover}}){{else}}no-cover{{/if}}"
+{{/if}}
+{{/is}}
+
+{{#is "tag"}}
+{{#if tag.cover}} 
+style="background-image: url({{tag.cover}})"
+{{else}}
+style="background-image: {{#if @blog.cover}}url({{@blog.cover}}){{else}}no-cover{{/if}}"
+{{/if}}
+{{/is}}>
+	<div class="start-header-top-outer">
+		<div class="container">
+			<div class="row start-header-top">
+				<div class="col-xs-6">
+					{{#if @blog.logo}}
+					<a href="{{@blog.url}}" class="start-logo start-header-link">
+						<img src="{{@blog.logo}}" alt="{{@blog.title}}">
+					</a>
+					{{/if}}				
+				</div> <!-- /.col-xs-6 -->
+				<div class="col-xs-6">
+					<div class="start-search-icon">
+						<a href="#" title="" class="start-header-link"><i class="icon_search"></i></a>
+					</div>
+					<div class="start-nav-button" id="start-nav-button">
+						<a href="#" title="" class="start-header-link"><i class="icon_menu"></i></a>	
+					</div> <!-- /.start-nav-button -->
+				</div> <!-- /.col-xs-6 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+		<div class="start-search-bar" id="start-search-bar">
+			<div class="container">
+				<div class="col-xs-10">
+					<form accept-charset="utf-8">
+						<input class="start-big-search-input" id="start-big-search-input" type="search" name="search" value="" placeholder="Search...">
+					</form>
+					<section class="start-search-results" id="results"></section>
+				</div> <!-- /.col-xs-8 -->
+				<div class="col-xs-2">
+					<a href="#" class="start-close-search start-header-link">
+						<i class="icon_close"></i>
+					</a>	
+				</div> <!-- /.col-xs-4 -->
+			</div> <!-- /.start-search-bar -->					
+		</div> <!-- /.start-search-bar-wrapper -->
+	</div> <!-- /.start-header-top-outer -->
+
+	{{^is "paged, post, page"}}
+	<div class="start-header-bottom">
+		<div class="start-blog-header-info">
+			{{#is "home"}}
+			<h1 class="start-blog-title" id="responsive-headline">
+				{{@blog.title}}
+			</h1>
+
+			<hr class="start-header-separator">
+			<p class="start-blog-description">
+				{{@blog.description}}
+			</p>
+			{{/is}}
+			{{#is "author"}}
+				{{^is "paged"}}
+				<h1 class="start-blog-title">{{author.name}}</h1>
+				<hr class="start-header-separator">
+				{{#if author.image}}
+				<div>
+					<img src="{{author.image}}" alt="{{author.name}}" class="img-circle">
+				</div>
+				{{/if}}
+				{{/is}}
+			{{/is}}
+			{{#is "tag"}}
+				{{^is "paged"}}
+				<h1 class="start-blog-title">{{tag.name}}</h1>
+				<hr class="start-header-separator">
+				{{#if tag.image}}
+				<div>
+					<img src="{{tag.image}}" alt="{{tag.name}}" class="img-circle">
+				</div>
+				{{/if}}
+				{{/is}}
+			{{/is}}
+			{{#is "page"}}
+				<h1 class="start-blog-title">{{page.name}}</h1>
+				<hr class="start-header-separator">
+				{{#if tag.image}}
+				<div>
+					<img src="{{tag.image}}" alt="{{tag.name}}" class="img-circle">
+				</div>
+				{{/if}}
+			{{/is}}
+		</div> <!-- /.start-blog-header-info -->
+
+		<div class="start-scroll-icon hidden-xs hidden-sm">
+			<a href="#" class="start-scroll-button start-header-link"><i class="arrow_carrot-down_alt2 start-scroller"></i></a>
+		</div> <!-- /.start-scroll-icon -->
+	</div> <!-- /.start-header-bottom -->
+	{{/is}}				
+</div>

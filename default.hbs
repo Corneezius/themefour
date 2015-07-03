@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{!-- Document Settings --}}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	{{!-- Page Meta --}}
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{{!-- TODO: Insert favicon icon --}}
+
+	{{!-- Styles --}}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/railscasts.min.css">
+	<link rel="stylesheet" href="{{asset "fonts/elegant_font/HTML-CSS/style.css"}}">
+	<link rel="stylesheet" href="{{asset "css/style.css"}}">
+
+	{{!-- Add your favicon here --}}
+	{{!-- <link rel="icon" type="image/png" href=""> --}}
+
+	
+	{{!-- Google fonts --}}
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+	
+	{{!-- Ghost outputs important style and meta data with this tag --}}
+	{{ghost_head}}
+</head>
+<body class="{{body_class}}">
+	<div class="start-container" id="start-container">
+		{{navigation}}
+		
+		{{!-- Content wrapper --}}
+		<div class="start-wrapper">
+			{{!-- Everything else gets inserted here --}}
+			{{{body}}}
+		</div> <!-- /.start-wrapper -->
+	</div> <!-- /.start-container -->
+	
+	
+	{{!-- Ghost outputs important scripts and data with this tag  --}}
+	{{ghost_foot}}
+
+	{{!-- Javascript files used in this theme --}}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{asset "js/classie/classie.js"}}"></script>
+	<script src="{{asset "js/ghostHunter/jquery.ghostHunter.min.js"}}"></script>
+	
+	{{!-- Highlight js --}}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	{{!-- FitText --}}
+	<script src="{{asset "js/FitText/jquery.fittext.js"}}"></script>
+	<script>
+		jQuery("#responsive-headline").fitText(1.2, { minFontSize: '36px', maxFontSize: '54px' });
+	</script>
+	{{!-- FitVids --}}
+	<script src="{{asset "js/FitVids/jquery.fitvids.js"}}"></script>
+	<script>
+		$(document).ready(function(){
+		    // Target your .container, .wrapper, .post, etc.
+		    $(".start-post-content").fitVids();
+		});
+	</script>
+
+	<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'start-ghost'; // required: replace example with your forum shortname
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function () {
+			var s = document.createElement('script'); s.async = true;
+			s.type = 'text/javascript';
+			s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+	</script>
+	<script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+	{{!-- Place your google analytics code here --}}
+</body>
+</html>

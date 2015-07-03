@@ -1,0 +1,237 @@
+/**
+*----------------------------------------------------------------------------------------------
+* 1. Base Styles
+*----------------------------------------------------------------------------------------------
+*/
+
+/* Variables */
+$primary-color: #000;
+$secondary-color: #000;
+$ternary-color: #000;
+$menu-color: #000;
+$font-color: #323133;
+$link-color: #1695a3;
+$link-hover-color: #0D5760;
+$line-height: 26px;
+
+$font-stack: 'Raleway', Helvetica, Arial, sans-serif;
+$font-size: 16px;
+
+$background: #f2f2f2;
+
+$transition-time: .3s;
+$transition-method: ease;
+
+/*Mixins*/
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin translate3D($x, $y, $z) {
+	-webkit-transform: translate3d($x, $y, $z);
+	-moz-transform: translate3d($x, $y, $z);
+	transform: translate3d($x, $y, $z);
+}
+
+
+body {
+	-webkit-font-smoothing: antialiased;
+  	word-wrap: break-word;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:active, &:focus {
+		outline: none;
+	}
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 2. Layout Styles
+*----------------------------------------------------------------------------------------------
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-stack;
+	line-height: 1.4em;
+}
+
+h1 {
+	font-size: 3.375em;
+	letter-spacing: .1em;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 2.25em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: .667em;
+}
+
+h6 {
+	font-size: .444em;
+
+.start-container {
+	overflow: hidden;
+}
+
+/* Content wrapper */
+.start-wrapper {
+	z-index: 99;
+}
+
+/* Header */
+.overlay {
+	min-height: 100vh;
+	width: 100%;
+	position: absolute;
+	background: none repeat scroll 0% 0% #000;
+	opacity: 0.7;
+}
+
+.start-header {
+	min-height: 100vh;
+	overflow: hidden;
+	background-size: cover; 
+	background-position: center;
+}
+
+.start-header-top { 
+	height: 120px;
+
+	.col-xs-6 {
+		height: inherit;
+		img, div{
+			@include vertical-align;
+		}	
+	}
+}
+
+.start-header-bottom {
+	margin: 50px auto 40px auto;
+}
+.start-nav-button {
+	font-size: 2.225em;
+	float: right;
+}
+
+.start-blog-title, .start-blog-description, .start-scroll-icon {
+	text-align: center;
+}
+
+.start-header-separator {
+	width: 15%;
+}
+
+.start-scroll-icon {
+	.arrow_carrot-down_alt2 {
+		font-size: 3.375em;
+		color: #fff;
+	}
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 3. Module Styles
+*----------------------------------------------------------------------------------------------
+*/
+.start-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 250px;
+	height: 100%;
+	background: $menu-color;
+	z-index: 100;
+	@include transition(all, $transition-time, $transition-method);
+	// visibility: hidden;
+}
+
+.start-effect.start-menu {
+	@include translate3D(100%, 0, 0);
+}
+
+.start-effect.start-menu-open .start-effect.start-menu {
+	@include translate3D(0, 0, 0);
+}
+
+.start-effect.start-menu::after {
+	display: none;
+}
+
+/**
+*----------------------------------------------------------------------------------------------
+* 4. Theme Styles
+*----------------------------------------------------------------------------------------------
+*/
+body {
+	background-color: $background;
+	font-family: $font-stack;
+	font-size: $font-size;
+	color: $font-color;
+	line-height: $line-height;
+	letter-spacing: 0.05em;
+}
+
+a {
+	color: $link-color;
+
+	&:hover {
+		color: $link-hover-color;
+		@include transition(color, $transition-time, $transition-method);
+	}
+}
+
+.start-nav-button {
+	a {
+		color: #fff;
+		&:hover {
+			color: $link-color;
+		}
+	}
+}
+
+.start-scroll-icon {
+	.arrow_carrot-down_alt2 {
+		&:hover {
+			color: $link-color;
+			@include transition(color, $transition-time, $transition-method);
+		}
+	}
+}
+
+.start-blog-title, .start-blog-description, .start-nav-button > i {
+	color: #fff;
+}

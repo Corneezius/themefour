@@ -1,0 +1,84 @@
+<div class="container">
+	{{#foreach posts columns=3}}
+	{{#if @rowStart}}
+	<div class="row start-loop-row">
+	{{/if}}
+		<div class="col-md-4">
+			<article class="{{post_class}} start-post-preview">
+				{{#if image}}
+				<header class="start-image-thumbnail" id="start-image-thumbnail-{{id}}">
+					<div class="start-thumb-overlay"></div>
+					<a href="{{url}}"><img src="{{image}}" alt="{{title}}"></a>
+				</header>
+				{{else}}
+				{{/if}}
+				<section class="start-post-excerpt">
+					<header class="start-post-header">
+						<div class="start-post-info row">
+							{{#foreach tags}}
+							{{#if @first}}
+							<span class="start-post-tag col-xs-6">
+								<a href="{{url}}">{{name}}</a>
+							</span> <!-- /.start-post-tag -->
+							{{/if}}
+							{{/foreach}}
+							<span class="start-post-date col-xs-6">
+								<time class="start-post-date" datetime="{{date format='YYYY-MM-DD'}}"><i class="fa fa-clock-o"></i> {{date format="MMM DD, YYYY"}}</time>
+							</span> <!-- /.start-post-date -->					
+						</div> <!-- /.start-post-info -->
+						<h3 class="start-post-title">
+							<a href="{{url}}">{{{title}}}</a>
+						</h3>
+					</header> <!-- /.post-header-start -->
+					<p>{{excerpt words=20}}...</p>
+					<span class="start-excerpt-author">by {{author}}</span>
+				</section> <!-- /.start-post-excerpt -->
+				<footer class="start-post-footer">
+					<ul class="list-inline">
+						<li>
+							<a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+							onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+							<i class="social_twitter"></i>
+						</a>
+						</li>
+						<li>
+			                <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+			                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+			                    <i class="social_facebook"></i>
+			                </a>							
+						</li>
+						<li>
+			                <a href="https://plus.google.com/share?url={{url absolute="true"}}"
+			                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+		                    	<i class="social_googleplus"></i>
+		                    </a>							
+						</li>
+						<li>
+							<a href="mailto:?&amp;subject={{title}}&amp;body=Check%20out%20this%20awesome%20blog%20post!%0A%0A{{url absolute="true"}}" target="_blank" >
+								<i class="fa fa-paper-plane"></i>
+							</a>
+						</li>
+					</ul>
+				</footer> <!-- /.start-post-footer -->
+			</article>		
+		</div> <!-- /.col-md-4 -->
+	{{#if @rowEnd}}
+	</div> <!-- /.row -->
+	{{else}}
+	{{#if @last}}
+	</div> <!-- /.row -->
+	{{/if}}
+	{{/if}}
+	{{/foreach}}
+</div> <!-- /.container -->
+
+{{!-- Previous/next page links - displayed on every page --}}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="start-pagination">
+				{{pagination}}
+			</div> <!-- /.start-pagination -->
+		</div> <!-- /.col-xs-12 -->
+	</div> <!-- /.row -->
+</div> <!-- /.container -->

@@ -1,0 +1,86 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+{{>	header}}
+
+{{#post}}
+
+<main class="start-post-content" role="main">
+    {{#if image}}
+    <div class="start-post-thumb-header" style="background-image: url({{image}})">
+    </div> <!-- /.start-post-header -->
+    {{/if}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 start-article-area">
+                <article class="{{post_class}} {{^if image}} start-article-no-image {{/if}}">
+                    <header class="start-post-header">
+                        <h1 class="start-post-title">
+                            <a href="{{url}}">{{{title}}}</a>
+                        </h1>
+                        {{^is "page"}}
+                        <div class="start-post-date">
+                            <time class="start-post-date" datetime="{{date format='YYYY-MM-DD'}}"> {{date format="MMMM DD, YYYY"}}</time>
+                        </div> <!-- /.start-post-date -->
+                        {{/is}}
+                    </header>
+
+                    <hr class="start-post-hr">
+
+                    <section class="start-main-post-content">
+                        {{content}}
+                    </section>
+
+                    <hr class="start-post-hr">
+                    
+                    <footer class="start-single-post-footer">
+
+                        <section class="start-post-share">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                    <i class="social_twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                    <i class="social_facebook"></i>
+                                    </a>                            
+                                </li>
+                                <li>
+                                    <a href="https://plus.google.com/share?url={{url absolute="true"}}"
+                                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                    <i class="social_googleplus"></i>
+                                    </a>                            
+                                </li>
+                                <li>
+                                    <a href="mailto:?&subject={{title}}&body=Check%20out%20this%20awesome%20blog%20post!%0A%0A{{url absolute="true"}}" target="_blank" >
+                                        <i class="fa fa-paper-plane"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </section> <!-- /.start-post-share -->
+
+                        <hr class="start-post-hr">
+                        
+                        {{#if tags}}
+                        <div class="start-post-tag start-post-tag-main start-post-tags">
+                            Tags: {{tags}}
+                        </div> <!-- /.start-post-tags -->
+                        <hr class="start-post-hr">
+                        {{/if}}
+                        
+                    </footer>
+                   
+                </article>  
+            </div> <!-- /.col-md-12 -->
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+</main>
+
+{{/post}}
+
+
+{{>	footer}}
